@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        int result = 0,i=0;
+        map<char,int>mapp;
+        mapp['I']=1;
+        mapp['V']=5;
+        mapp['X']=10;
+        mapp['L']=50;
+        mapp['C']=100;
+        mapp['D']=500;
+        mapp['M']=1000;
+        int size = s.length();
+        while(i<size)
+        {
+            if(mapp[s[i]]<mapp[s[i+1]])
+            {
+                result = result - mapp[s[i]];
+            }
+            else
+            {
+                result = result + mapp[s[i]];
+            }
+            i++;
+        }
+        return result;
+    }
+};

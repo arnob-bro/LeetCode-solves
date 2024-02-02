@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long int palindrome = 0,temp = x;
+        if(x<0) return false;
+        while(temp!=0)
+        {
+            int digit = temp % 10;
+            palindrome = digit + 10*palindrome;
+            temp=temp/10;
+        }
+        if(palindrome == x) return true;
+        else return false;
+    }
+};

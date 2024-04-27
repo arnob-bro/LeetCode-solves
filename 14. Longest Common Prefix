@@ -1,0 +1,48 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int vectorSize = strs.size();
+        string commonPrefix;
+        int n = 0,m=INT_MAX;
+        bool flag = false;
+        for(int i=0;i<vectorSize;i++)
+        {
+            if(strs[i].size()<m) m = strs[i].size();
+        }
+        if(vectorSize == 1)
+        {
+            commonPrefix = strs[0];
+        }
+        else
+        {
+            while(n<=m-1)
+        {
+            for(int i = 0;i<vectorSize-1; i++)
+        {
+            if(strs[i][n]== strs[i+1][n])
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+                break;
+            }
+        }
+            if(flag)
+            {
+                commonPrefix = commonPrefix + strs[0][n];
+                n++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        }
+        
+        
+        return commonPrefix;
+        
+    }
+};
